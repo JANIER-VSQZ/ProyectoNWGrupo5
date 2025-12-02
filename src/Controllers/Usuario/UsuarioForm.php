@@ -5,6 +5,7 @@ namespace Controllers\Usuario;
 use Controllers\PublicController;
 use Dao\Usuario\Usuario as DAOUsuario;
 use Dao\Rol\Rol as DAORol;
+use Dao\RolesUsuario\RolesUsuario as DAORolUsuario;
 use Exception;
 use Utilities\Site;
 use Utilities\Validators;
@@ -117,11 +118,29 @@ class UsuarioForm extends PublicController
 
         $viewData["isDisplay"] = $this->mode === "DSP";
 
-        $viewData["selected" . $this->estadoContrasena] = "selected";
-        $viewData["selected" . $this->estadoUsuario] = "selected";
+        // $viewData["selected" . $this->estadoContrasena] = "selected";
+        // $viewData["selected" . $this->estadoUsuario] = "selected";
+        $viewData["selectedPswd" . $this->estadoContrasena] = "selected";
+        $viewData["selectedUser" . $this->estadoUsuario] = "selected";
+
+
         $viewData["selected" . $this->tipoUsuario] = "selected";
 
+
+
+
         $viewData["rol"] = DAORol::obtenerRoles();
+        if ($this->mode !== "INS") {
+            $viewData["roles_usuario"] = DAORolUsuario::obtenerRolesPorUsuario($this->idUsuario);
+
+            foreach ($viewData["roles_usuario"] as $ru) {
+                $viewData["selectedRol" . $ru["rolescod"]] = "selected";
+            }
+        } else {
+            $viewData["roles_usuario"] = [];
+        }
+        // $viewData["roles_usuario"] = DAORolUsuario::obtenerRolesPorUsuario($this->idUsuario);
+
 
         return $viewData;
     }
@@ -191,6 +210,42 @@ class UsuarioForm extends PublicController
         try {
             $this->page_init();
             if ($this->isPostBack()) {
+
+                if (isset($_POST["btnAddRol"])) {
+                    $rolescod = $_POST["rolescod"] ?? '';
+                    $usercod  = $_POST["codigo"] ?? 0;
+
+                    if (!empty($rolescod) && $usercod > 0) {
+                        DAORolUsuario::agregarRolAUsuario($usercod, $rolescod);
+                        Site::redirectToWithMsg(
+                            "index.php?page=Usuario-UsuarioForm&mode=UPD&usercod={$usercod}",
+                            "Rol agregado correctamente."
+                        );
+                    } else {
+                        $this->errores[] = "Seleccione un rol válido.";
+                    }
+                }
+
+
+                if (isset($_POST["btnToggleRol"])) {
+                    $rolescod = $_POST["rolescod"];
+                    $usercod = $_POST["usercod"];
+
+                    // Obtener estado actual
+                    $rolActual = DAORolUsuario::obtenerRolUsuario($usercod, $rolescod);
+
+                    if ($rolActual) {
+                        $nuevoEstado = ($rolActual["roleuserest"] === "ACT") ? "INA" : "ACT";
+
+                        DAORolUsuario::actualizarEstadoRolUsuario($usercod, $rolescod, $nuevoEstado);
+
+                        Site::redirectToWithMsg(
+                            "index.php?page=Usuario-UsuarioForm&mode=UPD&usercod={$usercod}",
+                            "Estado del rol actualizado."
+                        );
+                    }
+                }
+
                 $this->errores = $this->validarPostData();
                 if (count($this->errores) === 0) {
                     try {

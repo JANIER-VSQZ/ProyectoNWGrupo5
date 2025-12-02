@@ -1,6 +1,6 @@
 <?php
 
-namespace Dao\RolesUsuarios;
+namespace Dao\RolesUsuario;
 
 use Dao\Table;
 
@@ -9,7 +9,7 @@ class RolesUsuario extends Table
     //Función para obtener todos los registros de usuario
     public static function rolesUsuario()
     {
-        $sqlStr = "SELECT * from usuario;";
+        $sqlStr = "SELECT * from roles_usuarios;";
         return self::obtenerRegistros($sqlStr, []);
     }
 
@@ -20,86 +20,55 @@ class RolesUsuario extends Table
         return self::obtenerUnRegistro($sqlstr, ["codigoUsuario" => $codigoUsuario]);
     }
 
+    public static function obtenerRolesPorUsuario($idUsuario)
+    {
+        $sql = "SELECT 
+                ru.usercod,
+                ru.rolescod,
+                r.rolesdsc,
+                ru.roleuserest
+            FROM roles_usuarios ru
+            INNER JOIN roles r ON r.rolescod = ru.rolescod
+            WHERE ru.usercod = :idUsuario;";
 
-    //Función para insertar un registro en usuario
-    public static function crearUsuario(
-        int $codigoUsuario,
-        string $correo,
-        string $nombreUsuario,
-        string $contrasena,
-        string $fechaCreacion,
-        string $estadoContrasena,
-        string $fechaExpContrasena,
-        string $estadoUsuario,
-        string $codigoActivacion,
-        string $codigoCambioContrasena,
-        string $tipoUsuario
-    ) {
-        $insSql = "INSERT INTO usuario (usercod, useremail, username, userpswd, userfching, userpswdest, userpswdexp, userest, useractcod, userpswdchg, usertipo)
-        VALUES (:idUsuario, :correo, :nombreUsuario, :contrasena, :fechaCreacion, :estadoContrasena, :fechaExpContrasena, :estadoUsuario, :codigoActivacion, :codigoCambioContrasena, :tipoUsuario);";
-
-        $newInsertData = [
-            "idUsuario" => $idUsuario,
-            "correo" => $correo,
-            "nombreUsuario" => $nombreUsuario,
-            "contrasena" => $contrasena,
-            "fechaCreacion" => $fechaCreacion,
-            "estadoContrasena" => $estadoContrasena,
-            "fechaExpContrasena" => $fechaExpContrasena,
-            "estadoUsuario" => $estadoUsuario,
-            "codigoActivacion" => $codigoActivacion,
-            "codigoCambioContrasena" => $codigoCambioContrasena,
-            "tipoUsuario" => $tipoUsuario,
-
-        ];
-
-        return self::executeNonQuery($insSql, $newInsertData);
+        return self::obtenerRegistros($sql, ["idUsuario" => $idUsuario]);
     }
 
-    //Función para actualizar un registro en usuario
-    public static function actualizarUsuario(
-        int $idUsuario,
-        string $correo,
-        string $nombreUsuario,
-        string $contrasena,
-        string $fechaCreacion,
-        string $estadoContrasena,
-        string $fechaExpContrasena,
-        string $estadoUsuario,
-        string $codigoActivacion,
-        string $codigoCambioContrasena,
-        string $tipoUsuario
-    ) {
-        $updSql = "UPDATE usuario SET useremail=:correo, username=:nombreUsuario, userpswd=:contrasena, userfching=:fechaCreacion, userpswdest=:estadoContrasena, userpswdexp=:fechaExpContrasena, userest=:estadoUsuario, useractcod=:codigoActivacion, userpswdchg=:codigoCambioContrasena, usertipo=:tipoUsuario
-        WHERE usercod=:idUsuario;";
 
-        $newUpdateData = [
-            "idUsuario" => $idUsuario,
-            "correo" => $correo,
-            "nombreUsuario" => $nombreUsuario,
-            "contrasena" => $contrasena,
-            "fechaCreacion" => $fechaCreacion,
-            "estadoContrasena" => $estadoContrasena,
-            "fechaExpContrasena" => $fechaExpContrasena,
-            "estadoUsuario" => $estadoUsuario,
-            "codigoActivacion" => $codigoActivacion,
-            "codigoCambioContrasena" => $codigoCambioContrasena,
-            "tipoUsuario" => $tipoUsuario,
+    public static function agregarRolAUsuario($usercod, $rolescod)
+    {
+        $sql = "INSERT INTO roles_usuarios (usercod, rolescod, roleuserest)
+            VALUES (:usercod, :rolescod, 'ACT')";
+
+        $params = [
+            "usercod" => $usercod,
+            "rolescod" => $rolescod
         ];
 
-        return self::executeNonQuery($updSql, $newUpdateData);
+        return self::executeNonQuery($sql, $params);
     }
 
-    //Función para eliminar un registro en usuario
-    public static function eliminarUsuario(
-        string $idUsuario
-    ) {
-        $delSql = "DELETE FROM usuario WHERE usercod=:idUsuario;";
 
-        $delData = [
-            "idUsuario" => $idUsuario
+
+    public static function obtenerRolUsuario($usercod, $rolescod)
+    {
+        $sql = "SELECT * FROM roles_usuarios WHERE usercod = :usercod AND rolescod = :rolescod";
+        $params = ["usercod" => $usercod, "rolescod" => $rolescod];
+        return self::obtenerUnRegistro($sql, $params);
+    }
+
+    public static function actualizarEstadoRolUsuario($usercod, $rolescod, $nuevoEstado)
+    {
+        $sql = "UPDATE roles_usuarios
+            SET roleuserest = :nuevoEstado
+            WHERE usercod = :usercod AND rolescod = :rolescod";
+
+        $params = [
+            "nuevoEstado" => $nuevoEstado,
+            "usercod" => $usercod,
+            "rolescod" => $rolescod
         ];
 
-        return self::executeNonQuery($delSql, $delData);
+        return self::executeNonQuery($sql, $params);
     }
 }
