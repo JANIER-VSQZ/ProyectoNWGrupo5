@@ -209,6 +209,7 @@ class UsuarioForm extends PublicController
 
     public function run(): void
     {
+
         try {
             $this->page_init();
             if ($this->isPostBack()) {
@@ -216,9 +217,12 @@ class UsuarioForm extends PublicController
                 if (isset($_POST["btnAddRol"])) {
                     $rolescod = $_POST["rolescod"] ?? '';
                     $usercod  = $_POST["codigo"] ?? 0;
-
+                    // Site::redirectToWithMsg(USUARIOL, $rolescod . $usercod);
                     if (!empty($rolescod) && $usercod > 0) {
+                        // if (!empty($rolescod)) {
+                        // Site::redirectToWithMsg(USUARIOL, $usercod . $rolescod);
                         DAORolUsuario::agregarRolAUsuario($usercod, $rolescod);
+                        // DAORolUsuario::agregarRolAUsuario(1, 'asdf');
                         Site::redirectToWithMsg(
                             "index.php?page=Usuario-UsuarioForm&mode=UPD&usercod={$usercod}",
                             "Rol agregado correctamente."
@@ -230,7 +234,7 @@ class UsuarioForm extends PublicController
 
 
                 if (isset($_POST["btnToggleRol"])) {
-                    $rolescod = $_POST["rolescod"];
+                    $rolescod = $_POST["rolescod_"];
                     $usercod = $_POST["usercod"];
 
                     // Obtener estado actual
@@ -318,7 +322,7 @@ class UsuarioForm extends PublicController
             );
         } catch (Exception $ex) {
             error_log($ex->getMessage());
-            Site::redirectToWithMsg(USUARIOL, "Sucedió un problema. Reintente de nuevo.");
+            Site::redirectToWithMsg(USUARIOL, "Sucedió un problema. Reintente de nuevo. " . $ex->getMessage());
         }
     }
 }

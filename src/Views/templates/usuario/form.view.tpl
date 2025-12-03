@@ -186,7 +186,7 @@
                     <td>{{roleuserest}}</td>
                     <td>
                         <form method="post" style="display:inline;">
-                            <input type="hidden" name="rolescod" value="{{rolescod}}">
+                            <input type="hidden" name="rolescod_" value="{{rolescod}}">
                             <input type="hidden" name="usercod" value="{{usercod}}">
 
                             <button type="submit" name="btnToggleRol">Cambiar Estado</button>

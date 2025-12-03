@@ -99,7 +99,7 @@
 
                         <!-- EST -->
                         <form method="post" style="display:inline;">
-                            <input type="hidden" name="fncod" value="{{fncod}}">
+                            <input type="hidden" name="fncod_" value="{{fncod}}">
                             <input type="hidden" name="rolescod" value="{{rolescod}}">
 
                             <button type="submit" name="cambiarEstado">Cambiar Estado</button>

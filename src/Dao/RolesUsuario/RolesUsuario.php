@@ -3,6 +3,7 @@
 namespace Dao\RolesUsuario;
 
 use Dao\Table;
+use Exception;
 
 class RolesUsuario extends Table
 {
@@ -37,6 +38,7 @@ class RolesUsuario extends Table
 
     public static function agregarRolAUsuario($usercod, $rolescod)
     {
+        // throw new Exception($usercod . $rolescod);
         $sql = "INSERT INTO roles_usuarios (usercod, rolescod, roleuserest)
             VALUES (:usercod, :rolescod, 'ACT')";
 

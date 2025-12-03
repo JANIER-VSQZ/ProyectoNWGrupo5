@@ -158,13 +158,13 @@ class RolForm extends PublicController
 
 
                 if (isset($_POST["agregarFuncion"])) {
-                    $rolescod = $_POST["rolescod"] ?? '';
+                    $rolescod = $_POST["codigo"] ?? '';
                     $fncod  = $_POST["fncod"] ?? 0;
 
                     if (!empty($fncod) && $rolescod > 0) {
                         DAOFuncionesRoles::agregarFuncionARol($rolescod, $fncod);
                         Site::redirectToWithMsg(
-                            "index.php?page=Rol-RolFrom&mode=UPD&rolescod={$rolescod}",
+                            "index.php?page=Rol-RolForm&mode=UPD&rolescod={$rolescod}",
                             "Función agregado correctamente."
                         );
                     } else {
@@ -175,7 +175,7 @@ class RolForm extends PublicController
 
                 if (isset($_POST["cambiarEstado"])) {
                     $rolescod = $_POST["rolescod"];
-                    $fncod = $_POST["fncod"];
+                    $fncod = $_POST["fncod_"];
 
                     // Obtener estado actual
                     $funcionActual = DAOFuncionesRoles::obtenerFuncionDeRol($rolescod, $fncod);
