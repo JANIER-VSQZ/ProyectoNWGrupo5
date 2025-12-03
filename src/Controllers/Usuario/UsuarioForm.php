@@ -127,6 +127,8 @@ class UsuarioForm extends PublicController
         $viewData["selected" . $this->tipoUsuario] = "selected";
 
 
+        $viewData["isUpdate"] = $this->mode === "UPD";
+
 
 
         $viewData["rol"] = DAORol::obtenerRoles();

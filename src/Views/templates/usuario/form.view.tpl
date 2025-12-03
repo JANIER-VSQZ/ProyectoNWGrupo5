@@ -104,6 +104,7 @@
             {{endif readonly}}
         </div>
 
+        {{if isUpdate}}
         <h3>Roles</h3>
 
         <div>
@@ -121,6 +122,8 @@
             <input type="text" name="rolescod" id="rolescod" {{readonly}} value="{{rolescod}}" />
             {{endif readonly}}
         </div>
+
+        {{endif isUpdate}}
 
 
 
@@ -171,6 +174,7 @@
                     <th>Descripción</th>
                     <th>Estado</th>
                     <th>Acción</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -184,6 +188,7 @@
                         <form method="post" style="display:inline;">
                             <input type="hidden" name="rolescod" value="{{rolescod}}">
                             <input type="hidden" name="usercod" value="{{usercod}}">
+
                             <button type="submit" name="btnToggleRol">Cambiar Estado</button>
                         </form>
                     </td>
