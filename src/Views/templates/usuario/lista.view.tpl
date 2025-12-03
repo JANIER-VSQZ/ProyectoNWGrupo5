@@ -9,12 +9,12 @@
                 <th>Codigo Usuario</th>
                 <th>Correo</th>
                 <th>Nombre</th>
-                <th>Contraseña</th>
+               
                 <th>Fecha Creación</th>
                 <th>Estado Contraseña</th>
                 <th>Fecha EXP Contraseña</th>
                 <th>Estado Usario</th>
-                <th>Codigo Activación</th>
+               
                 <th>Codigo Cambio Contraseña</th>
                 <th>Tipo Usario</th>
                 <th><a href="index.php?page=Sec-Register">Nuevo Usuario</a></th>
@@ -27,12 +27,12 @@
                 <td>{{usercod}}</td>
                 <td>{{useremail}}</td>
                 <td>{{username}}</td>
-                <td>{{userpswd}}</td>
+                
                 <td>{{userfching}}</td>
                 <td>{{userpswdest}}</td>
                 <td>{{userpswdexp}}</td>
                 <td>{{userest}}</td>
-                <td>{{useractcod}}</td>
+               
                 <td>{{userpswdchg}}</td>
                 <td>{{usertipo}}</td>
                 <td>
