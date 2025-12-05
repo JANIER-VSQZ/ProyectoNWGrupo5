@@ -1,5 +1,5 @@
-<section class="container">
-    <section class="depth-2">
+<!-- <section class="container"> -->
+    <section class="depth-2 container-m row px-4 py-4">
         <h2>{{mode}} {{modeDsc}}</h2>
     </section>
 
@@ -10,21 +10,21 @@
         {{endfor errores}}
     </ul>
     {{endif hasErrores}}
-
-    <form action="index.php?page=Rol-RolForm&mode={{mode}}&rolescod={{rolescod}}" method="post">
-        <div>
-            <label for="codigo">Codigo de Rol: </label>
-            <input type="text" name="codigo" id="codigo" value="{{rolescod}}" {{idReadonly}} />
+<section  class="container-m row px-4 py-4">
+    <form action="index.php?page=Rol-RolForm&mode={{mode}}&rolescod={{rolescod}}" method="post" class="col-12 col-m-8 offset-m-2">
+        <div class="row my-2 align-center">
+            <label for="codigo" class="col-12 col-m-3">Codigo de Rol: </label>
+            <input type="text" name="codigo" id="codigo" value="{{rolescod}}" {{idReadonly}} class="col-12 col-m-9"/>
             <input type="hidden" name="xrl8" value="{{token}}" />
         </div>
 
-        <div>
-            <label for="descripcion">Descripción de Rol: </label>
-            <input type="text" name="descripcion" id="descripcion" value="{{rolesdsc}}" {{readonly}} />
+        <div class="row my-2 align-center">
+            <label for="descripcion" class="col-12 col-m-3">Descripción de Rol: </label>
+            <input type="text" name="descripcion" id="descripcion" value="{{rolesdsc}}" {{readonly}} class="col-12 col-m-9"/>
         </div>
 
-        <div>
-            <label for="estadoRol">Estado de Rol: </label>
+        <div class="row my-2 align-center">
+            <label for="estadoRol" class="col-12 col-m-3">Estado de Rol: </label>
             {{ifnot readonly}}
             <select name="estadoRol" id="estadoRol">
                 <option value="ACT" {{selectedACT}}>Activo</option>
@@ -33,26 +33,26 @@
             {{endifnot readonly}}
 
             {{if readonly}}
-            <input type="text" name="estadoRol" id="estadoRol" value="{{rolesest}}" {{readonly}} />
+            <input type="text" name="estadoRol" id="estadoRol" value="{{rolesest}}" {{readonly}} class="col-12 col-m-9" />
             {{endif readonly}}
         </div>
 
 
-        <h3>Agregar Funciones al Rol</h3>
+        <h3 class="py-4">Agregar Funciones al Rol</h3>
 
-        <div>
-            <label for="funciones">Función: </label>
+        <div class="row my-2 align-center">
+            <label for="funciones" class="col-12 col-m-3">Función: </label>
             {{ifnot readonly}}
             <select name="fncod" id="fncod">
                 {{foreach funciones}}
                 <option value="{{fncod}}">{{fncod}}</option>
                 {{endfor funciones}}
             </select>
-            <button type="submit" name="agregarFuncion" value="1">Añadir Función</button>
+            <button type="submit" name="agregarFuncion" value="1" class="col-12 col-m-2">Añadir Función</button>
             {{endifnot readonly}}
 
             {{if readonly}}
-            <input type="text" name="fncod" id="fncod" {{readonly}} value="{{fncod}}" />
+            <input type="text" name="fncod" id="fncod" {{readonly}} value="{{fncod}}" class="col-12 col-m-9"/>
             {{endif readonly}}
         </div>
 
@@ -61,10 +61,10 @@
 
 
 
-        <div>
-            <button id="btnCancelar">Cancelar</button>
+        <div class="row my-2 align-center">
+            <button id="btnCancelar" class="primary col-12 col-m-2">Cancelar</button>
             {{ifnot isDisplay}}
-            <button id="btnConfirmar" type="submit">Confirmar</button>
+            <button id="btnConfirmar" type="submit" class="primary col-12 col-m-2">Confirmar</button>
             {{endifnot isDisplay}}
         </div>
 
@@ -112,7 +112,8 @@
 
 
     </form>
-</section>
+    </section>
+<!-- </section> -->
 
 
 <script>
