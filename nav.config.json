@@ -1,15 +1,28 @@
 {
   "public": [
     {
+      "id": "Lista_Usuarios",
+      "nav_url": "index.php?page=Usuario-UsuarioList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Usuarios"
+    },
+    {
+      "id": "Lista_Funciones",
+      "nav_url": "index.php?page=Funciones-FuncionesList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Funciones"
+    },
+    {
       "id": "Menu_SignIn",
       "nav_url": "index.php?page=Sec_Login",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Iniciar Sesión"
     },
+    
      {
       "id": "Menu_SignUp",
       "nav_url": "index.php?page=Sec_Register",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Crear Cuenta"
     }
+    
+    
   ],
   "private": [
     {
