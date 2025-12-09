@@ -110,4 +110,22 @@ class PayPalRestApi
         curl_close($curl);
         return json_decode($response);
     }
+    public function getOrder($orderId)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $this->_baseUrl . "/v2/checkout/orders/" . $orderId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => array(
+                "Content-Type: application/json",
+                "Authorization: Bearer " . $this->getAccessToken()
+            )
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        return json_decode($response);
+    }
 }
