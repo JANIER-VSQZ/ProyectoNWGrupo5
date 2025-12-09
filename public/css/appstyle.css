@@ -918,7 +918,7 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    background-color: #000;
+    background-color: #2F9B4F;
     color: #fff;
     padding: 0px;
     flex-wrap: wrap;
@@ -939,7 +939,7 @@ main {
 }
 
 footer {
-    background-color: #000;
+    background-color: #2F9B4F;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -959,7 +959,23 @@ header .username a {
     margin-left: 0.25rem
 }
 
+.infoEmpresa{
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+}
 
+.logo{
+    height: 64px;
+    width: 64px;
+    border-radius: 100%;
+}
+.logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
 
 header nav {
     position: fixed;
@@ -967,9 +983,9 @@ header nav {
     width: 100vw;
     margin-top: 52px;
     bottom: 0px;
-    height: calc(100% - 51px);
+    height: calc(100% - 65px);
     transform: translateX(-100vw);
-    background-color: #000;
+    background-color: #2F9B4F;
     color: #fff;
     transition: transform 250ms ease-in-out;
     z-index: 1000
@@ -997,7 +1013,7 @@ header ul li span {
 }
 
 header ul li a:hover {
-    background-color: #999;
+    background-color: #63ce83;
     transition: background-color .5s ease
 }
 
