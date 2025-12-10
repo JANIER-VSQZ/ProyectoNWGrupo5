@@ -69,6 +69,7 @@ class Accept extends PublicController
                     $idFactura=facturasDao::verificarSiExisteFactura($this->orderId)["factura_id"];
                 }
                 $dataview["idFactura"]=$idFactura;
+                $dataview["idUsuario"]=$_SESSION["login"]["userId"];
             }
             
             
