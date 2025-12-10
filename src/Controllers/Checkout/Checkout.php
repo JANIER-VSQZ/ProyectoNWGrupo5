@@ -16,8 +16,10 @@ class Checkout extends PublicController
                 "http://localhost:8080/ProyectoNWGrupo5/index.php?page=Checkout_Accept"
             );
 
-            $PayPalOrder->addItem("Manzana", "TestItem1", "PRD1", 100, 15, 1, "DIGITAL_GOODS"); //precio, impuesto, cantidad
-            $PayPalOrder->addItem("Piña", "TestItem2", "PRD2", 50, 7.5, 2, "DIGITAL_GOODS");
+            $PayPalOrder->addItem("Manzana", "TestItem1", "PRD1", 200, 15, 1, "DIGITAL_GOODS"); //precio, impuesto, cantidad
+            $PayPalOrder->addItem("Piña", "TestItem2", "PRD2", 150, 7.5, 2, "DIGITAL_GOODS");
+            $PayPalOrder->addItem("mouse", "TestItem3", "PRD3", 190, 7, 3, "DIGITAL_GOODS");
+            $PayPalOrder->addItem("teclado", "TestItem4", "PRD4", 390, 15, 1, "DIGITAL_GOODS");
 
             $PayPalRestApi = new \Utilities\PayPal\PayPalRestApi(
                 \Utilities\Context::getContextByKey("PAYPAL_CLIENT_ID"),

@@ -34,6 +34,10 @@ CREATE TABLE
         KEY `productId_idx` (`productId`),
         CONSTRAINT `carretillaanon_prd_key` FOREIGN KEY (`productId`) REFERENCES `products` (`productId`) ON DELETE NO ACTION ON UPDATE NO ACTION
     );
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     drop table facturas;
     CREATE TAble Facturas(
     factura_Id int PRIMARY KEY AUTO_INCREMENT,
@@ -49,7 +53,25 @@ CREATE TABLE
     constraint fk_usuarioId FOREIGN KEY (usuario_id) REFERENCES usuario(usercod)
 );
 
+<<<<<<< Updated upstream
 drop TABLE detalles_factura;
+=======
+select f.factura_id,
+    f.OrderIdPaypal,
+    f.captureIdPaypal,
+    f.fechaFactura,
+    f.usuario_Id,
+    u.username,
+    f.nombreCliente,
+    f.apellidoCliente,
+    f.Total,
+    f.impuesto,
+    f.moneda
+    from facturas as f 
+    inner join usuario as u on f.usuario_id=u.usercod
+    where f.factura_Id = 2 AND f.usuario_id=5;
+drop table detalles_factura;
+>>>>>>> Stashed changes
 Create table detalles_factura(
     detalles_factura_id int PRIMARY KEY AUTO_INCREMENT,
     factura_id INT Not NULL,
@@ -61,4 +83,18 @@ Create table detalles_factura(
     subtotal DECIMAL(12,2),
 
     constraint fk_facturaId FOREIGN KEY (factura_id) REFERENCES Facturas(factura_id)
+<<<<<<< Updated upstream
 );
+=======
+
+);
+
+
+
+SELECT COUNT(*) FROM facturas WHERE factura_id= 40;
+
+select * from facturas;
+select * from detalles_factura;
+
+Select * from detalles_factura where factura_id=25;
+>>>>>>> Stashed changes

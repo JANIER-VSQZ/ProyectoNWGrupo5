@@ -25,7 +25,13 @@
       <div class="hmb hrz"></div>
       <div class="hmb dgn pt-2"></div>
     </label>
-    <h1>{{SITE_TITLE}}</h1>
+    <div class="infoEmpresa">
+      <div class="logo">
+        <img src="public/imgs/logo.jpg" alt="Logo de la empresa.">
+      </div>
+      <h1>{{SITE_TITLE}}</h1>
+      
+    </div>
     <nav id="menu">
       <ul>
         <li><a href="index.php?page={{PRIVATE_DEFAULT_CONTROLLER}}"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
