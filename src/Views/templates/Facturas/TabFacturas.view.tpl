@@ -7,13 +7,13 @@
                     <th>orderIdPaypal</th>
                     <th>captureIdPaypal</th>
                     <th>fechaFactura</th>
+                    <th>id usuario</th>
                     <th>nombreCliente</th>
                     <th>apellidoCliente</th>
                     <th>subtotal</th>
                     <th>impuesto</th>
                     <th>moneda</th>
-
-            <th><a href="index.php?page=Facturas-FormFacturas&mode=INS&codigo=factura_Id">Nuevo</a></th>
+                    <th>accion</th>
         </tr>
     </thead>
     <tbody>
@@ -23,16 +23,15 @@
                     <td>{{orderIdPaypal}}</td>
                     <td>{{captureIdPaypal}}</td>
                     <td>{{fechaFactura}}</td>
+                    <td>{{usuario_id}}</td>
                     <td>{{nombreCliente}}</td>
                     <td>{{apellidoCliente}}</td>
-                    <td>{{subtotal}}</td>
+                    <td>{{total}}</td>
                     <td>{{impuesto}}</td>
                     <td>{{moneda}}</td>
 
             <td>
-                <a href="index.php?page=Facturas-FormFacturas&mode=UPD&codigo={{factura_Id}}">Editar</a>
-                <a href="index.php?page=Facturas-FormFacturas&mode=DEL&codigo={{factura_Id}}">Eliminar</a>
-                <a href="index.php?page=Facturas-FormFacturas&mode=DSP&codigo={{factura_Id}}">Ver</a>
+                <a href="index.php?page=Factura-Factura&idFactura={{factura_Id}}&idUsuario={{usuario_id}}">Ver Detalles</a>
             </td>
         </tr>
             

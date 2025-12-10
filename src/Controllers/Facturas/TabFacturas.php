@@ -11,7 +11,7 @@ class TabFacturas extends PublicController {
 
     public function run(): void{
         $viewData = [];
-        $viewData ["Facturas"] = FacturasDao::obtenerFacturas();
+        $viewData ["Facturas"] = FacturasDao::obtenerFacturasPorUsuario($_SESSION["login"]["userId"]);
         Renderer::render("Facturas/tabFacturas", $viewData);
     }
 }
