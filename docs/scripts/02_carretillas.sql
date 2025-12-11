@@ -66,6 +66,7 @@ select f.factura_id,
     inner join usuario as u on f.usuario_id=u.usercod
     where f.factura_Id = 2 AND f.usuario_id=5;
 drop table detalles_factura;
+
 Create table detalles_factura(
     detalles_factura_id int PRIMARY KEY AUTO_INCREMENT,
     factura_id INT Not NULL,

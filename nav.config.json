@@ -11,6 +11,11 @@
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Funciones"
     },
     {
+      "id": "Lista_Roles",
+      "nav_url": "index.php?page=Rol-RolList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Roles"
+    },
+    {
       "id": "Menu_SignIn",
       "nav_url": "index.php?page=Sec_Login",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Iniciar Sesión"

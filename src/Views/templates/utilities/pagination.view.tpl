@@ -1,5 +1,5 @@
 <section class="grid flex align-center">
-<div class="col-3">
+<!-- <div class="col-3">
   <form action="{{url}}" method="get" id="pagination">
     <input type="hidden" name="page" value="{{page}}" />
     <select name="itemsPerPage" id="itemsPerPage">
@@ -11,7 +11,7 @@
       <option value="100" {{itemsPerPage_100}}>100</option>
     </select>
   </form>
-</div>
+</div> -->
 <div class="col-3"> 
 </div>
 <div class="col-6 flex flex-end">
