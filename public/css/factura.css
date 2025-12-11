@@ -1,0 +1,120 @@
+*{
+    box-sizing: border-box;
+}
+
+p{
+    margin: 5px;
+    padding: 0;
+}
+
+h2{
+    margin: 5px;
+    padding: o;
+}
+
+.fondoFactura{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.factura{
+    min-width: 300px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);;
+    overflow: auto;
+    height: 95%;
+    background-color: #ffffff;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 15px;
+}
+
+.encabezadoFactura{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.infoEmpresa{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logoFactura img{
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+.datosFactura{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+
+.tarjeta{
+    background-color: #e5e6e87b;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 15px;
+}
+.cuerpofactura{
+    width: 100%;
+    padding: 5px;
+    background-color: #e5e6e83e;
+    border-radius: 15px;
+}
+.cuerpofactura table{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.cuerpofactura table thead{
+    background-color: #e5e6e87b;
+}
+
+.cuerpofactura table thead tr th{
+    width: 14%;
+    height: 40px;
+}
+
+.cuerpofactura table tbody tr td{
+    text-align: center;
+    height: 30px;
+    border-bottom: #e5e6e87b;
+}
+
+.total{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+@media(min-width:1024px){
+    .tarjeta{
+        width: 50%;
+    }
+    .tarjetasMovil{
+        display: none;
+    }
+}

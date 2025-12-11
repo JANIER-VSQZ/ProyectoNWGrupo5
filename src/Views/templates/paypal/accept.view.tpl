@@ -1,5 +1,6 @@
 <h1>Orden Aceptada</h1>
-<hr/>
-<pre>
-{{orderjson}}
-</pre>
+{{if idFactura}}
+    <button><a href="index.php?page=Factura_Factura&idFactura={{idFactura}}&idUsuario={{idUsuario}}">ver Factura</a></button>
+{{endif idFactura}}
+<p>{{factura}}</p>
+
