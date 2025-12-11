@@ -14,29 +14,38 @@
     <form action="index.php?page=Usuario-UsuarioForm&mode={{mode}}&usercod={{usercod}}" method="post">
         <div>
             <label for="codigo">Codigo Usuario: </label>
-            <input type="number" name="codigo" id="codigo" value="{{usercod}}" {{idReadonly}} />
+            <input type="number" name="codigo" id="codigo" value="{{usercod}}" {{idReadonly}} {{ifnot readonly}}
+                required min="1" {{endifnot readonly}} />
             <input type="hidden" name="xrl8" value="{{token}}" />
         </div>
 
         <div>
             <label for="correo">Correo: </label>
-            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}} />
+            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}}
+    {{ifnot readonly}} required maxlength="120" {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} />
+            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}}
+    {{ifnot readonly}} required minlength="3" maxlength="60" {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="contrasena">Contraseña: </label>
-            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" {{readonly}} />
+            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" {{readonly}}
+    {{ifnot readonly}}
+        required minlength="8"
+        maxlength="120"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).+$"
+        title="Debe incluir mayúsculas, minúsculas, números y un símbolo"
+    {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="fechaCreacion">Fecha Creación:</label>
             <input type="datetime" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" {{readonly}}
-                title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
+                 {{ifnot readonly}} required {{endifnot readonly}} title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
         </div>
 
         <div>
@@ -58,7 +67,7 @@
         <div>
             <label for="fechaExpContrasena">Fecha EXP Contraseña: </label>
             <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"
-                {{readonly}} title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
+                {{readonly}} {{ifnot readonly}} required {{endifnot readonly}}   title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00"  />
         </div>
 
         <div>
@@ -69,7 +78,7 @@
                 <option value="INA" {{selectedINA}}>Inactivo</option> -->
                 <option value="ACT" {{selectedUserACT}}>Activo</option>
                 <option value="INA" {{selectedUserINA}}>Inactivo</option>
-
+              
             </select>
             {{endifnot readonly}}
 
@@ -80,13 +89,14 @@
 
         <div>
             <label for="codigoActivacion">Codigo Activación: </label>
-            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" {{readonly}} />
+            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" {{readonly}}
+    {{ifnot readonly}} maxlength="64" {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="codigoCambioContrasena">Codigo Cambio Contraseña: </label>
             <input type="text" name="codigoCambioContrasena" id="codigoCambioContrasena" value="{{userpswdchg}}"
-                {{readonly}} />
+    {{readonly}} {{ifnot readonly}} maxlength="64" {{endifnot readonly}} />
         </div>
 
         <div>
