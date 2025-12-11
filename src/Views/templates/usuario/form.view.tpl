@@ -30,17 +30,29 @@
             <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} {{ifnot readonly}} required
                 minlength="3" maxlength="60" {{endifnot readonly}} />
         </div>
+
+            {{if isUpdate}}
+        <div>
+            <input type="hidden" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
+        </div>
+
+        <div>
+            <input type="hidden" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
+        </div>
+        {{endif isUpdate}}
+
         {{ifnot isUpdate}}
         <div>
             <label for="contrasena">Contraseña: </label>
             <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
         </div>
-        {{endifnot isUpdate}}
+
         <div>
             <label for="fechaCreacion">Fecha Creación:</label>
             <input type="text" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
         </div>
-
+        {{endifnot isUpdate}}
+        
         <div>
             <label for="estadoContrasena">Estado Contraseña: </label>
             {{ifnot readonly}}
@@ -59,7 +71,7 @@
 
         <div>
             <label for="fechaExpContrasena">Fecha EXP Contraseña: </label>
-            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"  readonly />
+            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}" readonly />
         </div>
 
         <div>
@@ -78,6 +90,19 @@
             <input type="text" name="estadoUsuario" id="estadoUsuario" value="{{userest}}" {{readonly}} />
             {{endif readonly}}
         </div>
+        {{if isUpdate}}
+        <div>
+
+            <input type="hidden" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" readonly />
+        </div>
+
+        <div>
+
+            <input type="hidden" name="codigoCambioContrasena" id="codigoCambioContrasena" value="{{userpswdchg}}"
+                readonly />
+        </div>
+        {{endif isUpdate}}
+
         {{ifnot isUpdate}}
         <div>
             <label for="codigoActivacion">Codigo Activación: </label>
