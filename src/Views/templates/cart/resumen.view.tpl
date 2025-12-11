@@ -1,6 +1,6 @@
 <h1>Resumen de tu compra</h1>
-
-<table class="cart-table">
+<section class="WWList">
+<table >
     <thead>
         <tr>
             <th>Producto</th>
@@ -10,11 +10,11 @@
             <th>Acción</th>
         </tr>
     </thead>
-    <tbody id="cart-items-body">
+    <tbody>
         {{foreach items}}
         <tr data-productid="{{productId}}">
             <td>
-                <img src="{{productImgUrl}}" alt="{{productName}}" style="width:60px;height:60px;">
+                <img src="{{productImgUrl}}" alt="{{productName}}" style="margin-right: 10px;width:60px;height:60px;">
                 {{productName}}
             </td>
             <td>{{crrprc}}</td>
@@ -27,7 +27,7 @@
         {{endfor items}}
     </tbody>
 </table>
-
+</section>
 <form action="index.php?page=checkout_checkout" method="post">
   <button type="submit">Place Order</button>
 </form>
