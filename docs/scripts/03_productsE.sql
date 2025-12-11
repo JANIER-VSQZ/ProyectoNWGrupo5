@@ -1,0 +1,50 @@
+CREATE TABLE `products` (
+    `productId` int(11) NOT NULL AUTO_INCREMENT,
+    `productName` varchar(255) NOT NULL,
+    `productDescription` text NOT NULL,
+    `productPrice` decimal(10, 2) NOT NULL,
+    `productImgUrl` varchar(255) NOT NULL,
+    `productStock` int NOT NULL DEFAULT 0,
+    `productStatus` char(3) NOT NULL,
+    PRIMARY KEY (`productId`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4;
+
+
+INSERT INTO products 
+(productId, productName, productDescription, productPrice, productImgUrl, productStock, productStatus)
+VALUES
+(1, 'Cargador', 'Cargador Samsung Tipo C 45W', 600.00, 'public/imgs/productos/cargador.jpg', 34, 'ACT'),
+(2, 'Adaptador', 'Adaptador USB a C', 200.00, 'public/imgs/productos/adaptador.jpg', 35, 'ACT'),
+(3, 'Intercomunicador', 'Intercomunicador con Video', 2650.00, 'public/imgs/productos/intercomunicador.jpg', 7, 'ACT'),
+(4, 'Echo Show', 'Echo Show 5', 2500.00, 'public/imgs/productos/echoshow.jpg', 7, 'ACT'),
+(5, 'Parlante', 'Parlante Pall Power Mini', 1600.00, 'public/imgs/productos/parlante.jpg', 12, 'ACT'),
+(6, 'Cable', 'Cable XLR a XLR Roxtone', 450.00, 'public/imgs/productos/cablexlr.jpg', 44, 'ACT'),
+(7, 'Audífonos', 'Audífonos kilpxtreme Style Inalámbrico', 1380.00, 'public/imgs/productos/audifonosklip.jpg', 13, 'ACT'),
+(8, 'Cerradura Smart', 'Cerradura Smart Compatible con Alexa', 2890.00, 'public/imgs/productos/cerradura.jpg', 8, 'ACT'),
+(9, 'Proyector RCA', 'Proyector RCA', 4500.00, 'public/imgs/productos/proyector.jpg', 8, 'ACT'),
+(10, 'Cable RCA', 'Cable RCA a 3.5 Mivic''s 6pm', 120.00, 'public/imgs/productos/cablerca.jpg', 24, 'ACT'),
+(11, 'Router Cudy', 'Router Cudy 867MBPS, AC1200', 680.00, 'public/imgs/productos/routercudy.jpg', 10, 'ACT'),
+(12, 'Silla Gamer', 'Silla Gamer Esscencial 220lb Nenotech', 2980.00, 'public/imgs/productos/sillagamer.jpg', 7, 'ACT'),
+(13, 'Cable AUX', 'Cable Auxiliar para Iphone', 320.00, 'public/imgs/productos/cableaux.jpg', 23, 'ACT'),
+(14, 'Adaptador HDMI', 'Adaptador Mini HDMI a HDMI', 250.00, 'public/imgs/productos/adaptadorhdmi.jpg', 24, 'ACT'),
+(15, 'Funda', 'Funda para Laptop', 580.00, 'public/imgs/productos/funda.jpg', 9, 'ACT'),
+(16, 'Cámara Inalámbrica', 'Cámara Inalámbrica Doble Lente', 1200.00, 'public/imgs/productos/camara.jpg', 6, 'ACT'),
+(17, 'Memoria Micro SD', 'Memoria Micro SD 256GB Hikvision', 1490.00, 'public/imgs/productos/memoriamicrosd.jpg', 33, 'ACT'),
+(18, 'Mueble', 'Mueble para Computadora', 1500.00, 'public/imgs/productos/mueble.jpg', 5, 'ACT'),
+(19, 'Adaptador Mini HDMI', 'Adaptador Mini/Micro HDMI a HDMI', 250.00, 'public/imgs/productos/adaptadormini.jpg', 11, 'ACT'),
+(20, 'Lámpara Solar', 'Lámpara Solar 90W', 1650.00, 'public/imgs/productos/lamparasolar.jpg', 23, 'ACT'),
+(21, 'Parlante Bluetooth', 'Parlante Bluetooth Klipxtreme', 780.00, 'public/imgs/productos/parlantebluetooth.jpg', 44, 'ACT'),
+(22, 'Memoria Micro SD', 'Memoria Micro SD 64GB Hiksemi', 190.00, 'public/imgs/productos/memoriamicrosd2.jpg', 44, 'ACT'),
+(23, 'Cargador MagSafe', 'Cargador MagSafe', 350.00, 'public/imgs/productos/cargadormagsafe.jpg', 32, 'ACT'),
+(24, 'Adaptador Bluetooth', 'Adaptador Bluetooth USB 4.0', 280.00, 'public/imgs/productos/adaptadorbluetooth.jpg', 23, 'ACT'),
+(25, 'Router Cudy', 'Router Cudy AC1200 Gigabyt', 900.00, 'public/imgs/productos/routercudy2.jpg', 12, 'ACT'),
+(26, 'Memoria USB', 'Memoria USB Hikvision 32GB de Metal', 190.00, 'public/imgs/productos/memoriausb.jpg', 45, 'ACT'),
+(27, 'Proyector Epson', 'Proyector Epson 3000 Lumens', 13900.00, 'public/imgs/productos/proyectorepson.jpg', 5, 'ACT'),
+(28, 'Lector Biométrico', 'Lector Biométrico 3nStar', 5800.00, 'public/imgs/productos/lectorbiometrico.jpg', 12, 'ACT'),
+(29, 'Cámara Xiaomi', 'Cámara de Seguridad Xiaomi', 1500.00, 'public/imgs/productos/camaraseguridad.jpg', 23, 'ACT'),
+(30, 'Repetidor Cudy', 'Repetidor Cudy 867MBPS AC1200', 950.00, 'public/imgs/productos/repetidorcudy.jpg', 14, 'ACT'),
+(31, 'Cable Extensión HDMI', 'Cable Extensión HDMI Ugreen 2m', 220.00, 'public/imgs/productos/cableextension.jpg', 33, 'ACT'),
+(32, 'Cable Audio', 'Cable de Audio 3.5mm a Doble Salida', 150.00, 'public/imgs/productos/cableaudio.jpg', 24, 'ACT'),
+(33, 'Cámara Deportiva', 'Cámara Deportiva 4K Wi-Fi', 1500.00, 'public/imgs/productos/camaradeportiva.jpg', 34, 'ACT'),
+(34, 'Router Mercusys', 'Router Mercusys Turbo Mbps330 High Power', 750.00, 'public/imgs/productos/routermercusys.jpg', 22, 'ACT'),
+(35, 'Impresora Epson', 'Impresora Epson L5290', 12800.00, 'public/imgs/productos/impresoraepson.jpg', 5, 'ACT');

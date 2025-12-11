@@ -1,0 +1,38 @@
+.add {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+}
+
+.back {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+  background-color: #cc9d2e;
+  color: #ffffff;
+  border: none;
+}
+
+.add:hover {
+  background-color: #27ae60;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.back:hover {
+  background-color: #a5ae27;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: whitesmoke;
+}
+
