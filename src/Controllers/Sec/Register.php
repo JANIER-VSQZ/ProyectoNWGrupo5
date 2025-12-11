@@ -32,7 +32,7 @@ class Register extends PublicController
                 $this->hasErrors = true;
             }
             if (empty($this->txtNombre)) {
-                 $this->errorNombre = "El nombre de usuario es obligatorio";
+                 $this->errorNombre = "El nombre es obligatorio";
                 $this->hasErrors = true;
             }
             if (!$this->hasErrors) {
