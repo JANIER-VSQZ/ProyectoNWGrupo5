@@ -21,31 +21,24 @@
 
         <div>
             <label for="correo">Correo: </label>
-            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}}
-    {{ifnot readonly}} required maxlength="120" {{endifnot readonly}} />
+            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}} {{ifnot readonly}} required
+                maxlength="120" {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}}
-    {{ifnot readonly}} required minlength="3" maxlength="60" {{endifnot readonly}} />
+            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} {{ifnot readonly}} required
+                minlength="3" maxlength="60" {{endifnot readonly}} />
         </div>
-
+        {{ifnot isUpdate}}
         <div>
             <label for="contrasena">Contraseña: </label>
-            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" {{readonly}}
-    {{ifnot readonly}}
-        required minlength="8"
-        maxlength="120"
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).+$"
-        title="Debe incluir mayúsculas, minúsculas, números y un símbolo"
-    {{endifnot readonly}} />
+            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
         </div>
-
+        {{endifnot isUpdate}}
         <div>
             <label for="fechaCreacion">Fecha Creación:</label>
-            <input type="datetime" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" {{readonly}}
-                 {{ifnot readonly}} required {{endifnot readonly}} title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
+            <input type="text" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
         </div>
 
         <div>
@@ -66,8 +59,7 @@
 
         <div>
             <label for="fechaExpContrasena">Fecha EXP Contraseña: </label>
-            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"
-                {{readonly}} {{ifnot readonly}} required {{endifnot readonly}}   title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00"  />
+            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}" readonly />
         </div>
 
         <div>
@@ -78,7 +70,7 @@
                 <option value="INA" {{selectedINA}}>Inactivo</option> -->
                 <option value="ACT" {{selectedUserACT}}>Activo</option>
                 <option value="INA" {{selectedUserINA}}>Inactivo</option>
-              
+
             </select>
             {{endifnot readonly}}
 
@@ -86,19 +78,18 @@
             <input type="text" name="estadoUsuario" id="estadoUsuario" value="{{userest}}" {{readonly}} />
             {{endif readonly}}
         </div>
-
+        {{ifnot isUpdate}}
         <div>
             <label for="codigoActivacion">Codigo Activación: </label>
-            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" {{readonly}}
-    {{ifnot readonly}} maxlength="64" {{endifnot readonly}} />
+            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" readonly />
         </div>
 
         <div>
             <label for="codigoCambioContrasena">Codigo Cambio Contraseña: </label>
             <input type="text" name="codigoCambioContrasena" id="codigoCambioContrasena" value="{{userpswdchg}}"
-    {{readonly}} {{ifnot readonly}} maxlength="64" {{endifnot readonly}} />
+                readonly />
         </div>
-
+        {{endifnot isUpdate}}
         <div>
             <label for="tipoUsuario">Tipo de Usuario: </label>
             {{ifnot readonly}}
