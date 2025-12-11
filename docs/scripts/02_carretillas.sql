@@ -36,7 +36,7 @@ CREATE TABLE
     );
 
     drop table facturas;
-    CREATE TAble Facturas(
+    CREATE TABLE facturas(
     factura_Id int PRIMARY KEY AUTO_INCREMENT,
     orderIdPaypal VARCHAR(50) NOT NULL,
     captureIdPaypal VARCHAR(50) NOT NULL,
@@ -77,7 +77,7 @@ Create table detalles_factura(
     cantidad int,
     subtotal DECIMAL(12,2),
 
-    constraint fk_facturaId FOREIGN KEY (factura_id) REFERENCES Facturas(factura_id)
+    constraint fk_facturaId FOREIGN KEY (factura_id) REFERENCES facturas(factura_id)
 );
 
 

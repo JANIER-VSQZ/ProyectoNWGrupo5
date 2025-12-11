@@ -1,15 +1,19 @@
 <?php
+
 namespace Dao\Facturas;
 
 use Dao\Table;
 
-class Facturas extends Table{
-    public static function obtenerFacturas(): array{
+class Facturas extends Table
+{
+    public static function obtenerFacturas(): array
+    {
         $sqlstr = "SELECT * FROM Facturas";
         return self::obtenerRegistros($sqlstr, []);
     }
 
-    public static function obtenerFacturasPorCodigo(int $factura_Id, int $usuario_id):array{
+    public static function obtenerFacturasPorCodigo(int $factura_Id, int $usuario_id): array
+    {
         $sqlstr = "select f.factura_id,
         f.orderIdPaypal,
         f.captureIdPaypal,
@@ -24,19 +28,21 @@ class Facturas extends Table{
         from facturas as f 
         inner join usuario as u on f.usuario_id=u.usercod
         where f.factura_Id = :factura_Id AND f.usuario_id=:usuario_Id;";
-    $params=[
-        "factura_Id" => $factura_Id,
-        "usuario_Id" => $usuario_id
-    ];
+        $params = [
+            "factura_Id" => $factura_Id,
+            "usuario_Id" => $usuario_id
+        ];
         return self::obtenerUnRegistro($sqlstr, $params);
     }
 
-    public static function obtenerFacturasPorUsuario(int $usercod):array{
-        $sqlstr="SELECT * from Facturas where usuario_id = :usercod;";
+    public static function obtenerFacturasPorUsuario(int $usercod): array
+    {
+        $sqlstr = "SELECT * from Facturas where usuario_id = :usercod;";
         return self::obtenerRegistros($sqlstr, ['usercod' => $usercod]);
     }
 
-    public static function verificarSiExisteFactura(string $factura_Id){
+    public static function verificarSiExisteFactura(string $factura_Id)
+    {
         $sqlstr = "SELECT factura_id FROM facturas WHERE orderIdPaypal = :factura_Id";
         return self::obtenerUnRegistro($sqlstr, ["factura_Id" => $factura_Id]);
     }
@@ -51,8 +57,8 @@ class Facturas extends Table{
         float $subtotal,
         float $impuesto,
         string $moneda
-    ){
-        $sqlstr = "INSERT INTO Facturas (orderIdPaypal, captureIdPaypal, usuario_id, nombreCliente, apellidoCliente, total, impuesto, moneda) VALUES (:orderIdPaypal, :captureIdPaypal, :usuarioId, :nombreCliente, :apellidoCliente, :subtotal, :impuesto, :moneda)";
+    ) {
+        $sqlstr = "INSERT INTO facturas (orderIdPaypal, captureIdPaypal, usuario_id, nombreCliente, apellidoCliente, total, impuesto, moneda) VALUES (:orderIdPaypal, :captureIdPaypal, :usuarioId, :nombreCliente, :apellidoCliente, :subtotal, :impuesto, :moneda)";
 
         $params = [
             'orderIdPaypal' => $orderIdPaypal,
@@ -77,8 +83,8 @@ class Facturas extends Table{
         float $subtotal,
         float $impuesto,
         string $moneda
-    ){
-        $sqlstr = "UPDATE Facturas SET orderIdPaypal = :orderIdPaypal, captureIdPaypal = :captureIdPaypal, fechaFactura = :fechaFactura, nombreCliente = :nombreCliente, apellidoCliente = :apellidoCliente, subtotal = :subtotal, impuesto = :impuesto, moneda = :moneda WHERE factura_Id = :factura_Id";
+    ) {
+        $sqlstr = "UPDATE facturas SET orderIdPaypal = :orderIdPaypal, captureIdPaypal = :captureIdPaypal, fechaFactura = :fechaFactura, nombreCliente = :nombreCliente, apellidoCliente = :apellidoCliente, subtotal = :subtotal, impuesto = :impuesto, moneda = :moneda WHERE factura_Id = :factura_Id";
 
         $params = [
             'factura_Id' => $factura_Id,
@@ -96,13 +102,12 @@ class Facturas extends Table{
 
     public static function eliminarFacturas(
         int $factura_Id
-    ){
-        $sqlstr = "DELETE FROM Facturas WHERE factura_Id = :factura_Id;";
+    ) {
+        $sqlstr = "DELETE FROM facturas WHERE factura_Id = :factura_Id;";
 
         $params = [
             'factura_Id' => $factura_Id
         ];
         return self::executeNonQuery($sqlstr, $params);
     }
-    
 }
