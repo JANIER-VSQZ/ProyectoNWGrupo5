@@ -5,19 +5,20 @@ namespace Controllers\Sec;
 use Controllers\PublicController;
 use \Utilities\Validators;
 use Exception;
+use Utilities\Site;
 
 class Register extends PublicController
 {
     private $txtEmail = "";
     private $txtPswd = "";
     private $txtNombre = "";
-    private $errorEmail ="";
+    private $errorEmail = "";
     private $errorPswd = "";
     private $errorNombre = "";
     private $hasErrors = false;
-    public function run() :void
+    public function run(): void
     {
-
+        Site::addLink("public/css/forms.css");
         if ($this->isPostBack()) {
             $this->txtEmail = $_POST["txtEmail"];
             $this->txtPswd = $_POST["txtPswd"];
@@ -32,15 +33,15 @@ class Register extends PublicController
                 $this->hasErrors = true;
             }
             if (empty($this->txtNombre)) {
-                 $this->errorNombre = "El nombre es obligatorio";
+                $this->errorNombre = "El nombre es obligatorio";
                 $this->hasErrors = true;
             }
             if (!$this->hasErrors) {
-                try{
-                    if (\Dao\Security\Security::newUsuario($this->txtEmail, $this->txtPswd,$this->txtNombre)) {
+                try {
+                    if (\Dao\Security\Security::newUsuario($this->txtEmail, $this->txtPswd, $this->txtNombre)) {
                         \Utilities\Site::redirectToWithMsg("index.php?page=Sec_login", "¡Usuario Registrado Satisfactoriamente!");
                     }
-                } catch (Error $ex){
+                } catch (Error $ex) {
                     die($ex);
                 }
             }
@@ -49,4 +50,3 @@ class Register extends PublicController
         \Views\Renderer::render("security/sigin", $viewData);
     }
 }
-?>

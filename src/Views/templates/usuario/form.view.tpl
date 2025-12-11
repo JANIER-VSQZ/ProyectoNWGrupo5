@@ -59,7 +59,7 @@
 
         <div>
             <label for="fechaExpContrasena">Fecha EXP Contraseña: </label>
-            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}" readonly />
+            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"  readonly />
         </div>
 
         <div>
@@ -116,7 +116,7 @@
                 <option value="{{rolescod}}">{{rolescod}}</option>
                 {{endfor rol}}
             </select>
-            <button type="submit" name="btnAddRol" value="1">Añadir Rol</button>
+            <button id="btnAddRol" type="submit" name="btnAddRol" value="1">Añadir Rol</button>
             {{endifnot readonly}}
 
             {{if readonly}}
@@ -166,39 +166,39 @@
             </table>
         </section> -->
 
+        <section class="WWList">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>UserCod</th>
+                        <th>Código Rol</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>UserCod</th>
-                    <th>Código Rol</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{foreach roles_usuario}}
+                    <tr>
+                        <td>{{usercod}}</td>
+                        <td>{{rolescod}}</td>
+                        <td>{{rolesdsc}}</td>
+                        <td>{{roleuserest}}</td>
+                        <td>
+                            <form method="post" style="display:inline;">
+                                <input type="hidden" name="rolescod_" value="{{rolescod}}">
+                                <input type="hidden" name="usercod" value="{{usercod}}">
 
-                </tr>
-            </thead>
-            <tbody>
-                {{foreach roles_usuario}}
-                <tr>
-                    <td>{{usercod}}</td>
-                    <td>{{rolescod}}</td>
-                    <td>{{rolesdsc}}</td>
-                    <td>{{roleuserest}}</td>
-                    <td>
-                        <form method="post" style="display:inline;">
-                            <input type="hidden" name="rolescod_" value="{{rolescod}}">
-                            <input type="hidden" name="usercod" value="{{usercod}}">
+                                <button id="btnToggleRol" type="submit" name="btnToggleRol">Cambiar Estado</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{endfor roles_usuario}}
+                </tbody>
+            </table>
 
-                            <button type="submit" name="btnToggleRol">Cambiar Estado</button>
-                        </form>
-                    </td>
-                </tr>
-                {{endfor roles_usuario}}
-            </tbody>
-        </table>
-
-
+        </section>
 
 
 
