@@ -2,12 +2,12 @@
 
 namespace Controllers\Usuario;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Usuario\Usuario as DAOUsuario;
 use Views\Renderer;
 use Utilities\Site;
 
-class UsuarioList extends PublicController
+class UsuarioList extends PrivateController
 {
     public function run(): void
     {

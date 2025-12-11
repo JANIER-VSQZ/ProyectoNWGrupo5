@@ -2,13 +2,13 @@
 
 namespace Controllers\Productos;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Productos\Productos as DAOProductos;
 use Utilities\Site;
 use Utilities\Paging;
 use Views\Renderer;
 
-class ProductosList extends PublicController
+class ProductosList extends PrivateController
 {
     private $pageNumber = 1;
     private $itemsPerPage = 10;

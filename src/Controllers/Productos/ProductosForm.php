@@ -2,7 +2,7 @@
 
 namespace Controllers\Productos;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Productos\Productos as DAOProductos;
 use Exception;
 use Utilities\Site;
@@ -14,7 +14,7 @@ const PRODUCTOSL = "index.php?page=Productos-ProductosList";
 const PRODUCTOS_VIEW = "productos/form";
 
 
-class ProductosForm extends PublicController
+class ProductosForm extends PrivateController
 {
     private $modes = [
         "INS" => "Nuevo Producto",
