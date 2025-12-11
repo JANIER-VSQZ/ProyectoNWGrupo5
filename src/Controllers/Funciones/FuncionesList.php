@@ -2,12 +2,12 @@
 
 namespace Controllers\Funciones;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Funciones\Funciones as DAOFunciones;
 use Views\Renderer;
 use Utilities\Site;
 
-class FuncionesList extends PublicController
+class FuncionesList extends PrivateController
 {
     public function run(): void
     {

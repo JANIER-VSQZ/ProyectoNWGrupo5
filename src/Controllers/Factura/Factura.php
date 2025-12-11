@@ -2,7 +2,7 @@
 
 namespace Controllers\Factura;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 Use Dao\Facturas\Facturas as facturasDao;
 use Dao\Facturas\DetallesFactura;
 use Dao\Dao;
@@ -12,7 +12,7 @@ use Utilities\Security;
 use Dao\Usuario\Usuario;
 use Dao\Security\UsuarioTipo;
 
-class Factura extends PublicController{
+class Factura extends PrivateController{
     public function run():void{
         Site::addLink("public/css/factura.css");
         $idFactura = intval($_GET["idFactura"]);

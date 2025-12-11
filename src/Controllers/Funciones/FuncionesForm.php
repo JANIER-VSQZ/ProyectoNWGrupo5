@@ -2,7 +2,7 @@
 
 namespace Controllers\Funciones;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Funciones\Funciones as DAOFunciones;
 use Exception;
 use Utilities\Site;
@@ -14,7 +14,7 @@ const FUNCIONESL = "index.php?page=Funciones-FuncionesList";
 const FUNCIONES_VIEW = "funciones/form";
 
 
-class FuncionesForm extends PublicController
+class FuncionesForm extends PrivateController
 {
     private $modes = [
         "INS" => "Nueva Función",

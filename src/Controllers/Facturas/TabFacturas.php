@@ -2,14 +2,14 @@
 
 namespace Controllers\Facturas;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Dao;
 use Views\Renderer;
 Use Dao\Facturas\Facturas as FacturasDao;
 use Dao\Usuario\Usuario;
 use Utilities\Site;
 
-class TabFacturas extends PublicController {
+class TabFacturas extends PrivateController {
 
     public function run(): void{
         Site::addLink("public/css/tablaFacturas.css");

@@ -2,7 +2,7 @@
 
 namespace Controllers\Checkout;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 
 
 ///
@@ -11,7 +11,7 @@ use Dao\Carretilla\Carretilla as DaoCarretilla;
 use Dao\Carretilla\CarretillaAnon as DaoCarretillaAnon;
 use Dao\Productos\Productos as DaoProductos;
 
-class Checkout extends PublicController
+class Checkout extends PrivateController
 {
 
     public function run(): void
