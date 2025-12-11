@@ -80,9 +80,9 @@
                             <th>Código Rol</th>
                             <th>Función</th>
                             <th>Estado</th>
-                            {{ifnot readonlyFunciones}}
+                            
                             <th>Acciones</th>
-                            {{endifnot readonlyFunciones}}
+                            
                         </tr>
                     </thead>
                     <tbody>
