@@ -152,6 +152,8 @@ class RolForm extends PublicController
 
     public function run(): void
     {
+        Site::addLink("public/css/forms.css");
+        Site::addLink("public/css/lists.css");
         try {
             Site::addLink("public/css/forms.css");
             $this->page_init();

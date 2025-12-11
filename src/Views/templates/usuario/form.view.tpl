@@ -14,29 +14,31 @@
     <form action="index.php?page=Usuario-UsuarioForm&mode={{mode}}&usercod={{usercod}}" method="post">
         <div>
             <label for="codigo">Codigo Usuario: </label>
-            <input type="number" name="codigo" id="codigo" value="{{usercod}}" {{idReadonly}} />
+            <input type="number" name="codigo" id="codigo" value="{{usercod}}" {{idReadonly}} {{ifnot readonly}}
+                required min="1" {{endifnot readonly}} />
             <input type="hidden" name="xrl8" value="{{token}}" />
         </div>
 
         <div>
             <label for="correo">Correo: </label>
-            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}} />
+            <input type="email" name="correo" id="correo" value="{{useremail}}" {{readonly}} {{ifnot readonly}} required
+                maxlength="120" {{endifnot readonly}} />
         </div>
 
         <div>
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} />
+            <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} {{ifnot readonly}} required
+                minlength="3" maxlength="60" {{endifnot readonly}} />
         </div>
-
+        {{ifnot isUpdate}}
         <div>
             <label for="contrasena">Contraseña: </label>
-            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" {{readonly}} />
+            <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
         </div>
-
+        {{endifnot isUpdate}}
         <div>
             <label for="fechaCreacion">Fecha Creación:</label>
-            <input type="datetime" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" {{readonly}}
-                title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
+            <input type="text" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
         </div>
 
         <div>
@@ -57,8 +59,7 @@
 
         <div>
             <label for="fechaExpContrasena">Fecha EXP Contraseña: </label>
-            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"
-                {{readonly}} title="2025-11-11 00:00:00" placeholder="2025-11-11 00:00:00" />
+            <input type="datetime" name="fechaExpContrasena" id="fechaExpContrasena" value="{{userpswdexp}}"  readonly />
         </div>
 
         <div>
@@ -77,18 +78,18 @@
             <input type="text" name="estadoUsuario" id="estadoUsuario" value="{{userest}}" {{readonly}} />
             {{endif readonly}}
         </div>
-
+        {{ifnot isUpdate}}
         <div>
             <label for="codigoActivacion">Codigo Activación: </label>
-            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" {{readonly}} />
+            <input type="text" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" readonly />
         </div>
 
         <div>
             <label for="codigoCambioContrasena">Codigo Cambio Contraseña: </label>
             <input type="text" name="codigoCambioContrasena" id="codigoCambioContrasena" value="{{userpswdchg}}"
-                {{readonly}} />
+                readonly />
         </div>
-
+        {{endifnot isUpdate}}
         <div>
             <label for="tipoUsuario">Tipo de Usuario: </label>
             {{ifnot readonly}}
@@ -115,7 +116,7 @@
                 <option value="{{rolescod}}">{{rolescod}}</option>
                 {{endfor rol}}
             </select>
-            <button type="submit" name="btnAddRol" value="1">Añadir Rol</button>
+            <button id="btnAddRol" type="submit" name="btnAddRol" value="1">Añadir Rol</button>
             {{endifnot readonly}}
 
             {{if readonly}}
@@ -165,39 +166,39 @@
             </table>
         </section> -->
 
+        <section class="WWList">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>UserCod</th>
+                        <th>Código Rol</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>UserCod</th>
-                    <th>Código Rol</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{foreach roles_usuario}}
+                    <tr>
+                        <td>{{usercod}}</td>
+                        <td>{{rolescod}}</td>
+                        <td>{{rolesdsc}}</td>
+                        <td>{{roleuserest}}</td>
+                        <td>
+                            <form method="post" style="display:inline;">
+                                <input type="hidden" name="rolescod_" value="{{rolescod}}">
+                                <input type="hidden" name="usercod" value="{{usercod}}">
 
-                </tr>
-            </thead>
-            <tbody>
-                {{foreach roles_usuario}}
-                <tr>
-                    <td>{{usercod}}</td>
-                    <td>{{rolescod}}</td>
-                    <td>{{rolesdsc}}</td>
-                    <td>{{roleuserest}}</td>
-                    <td>
-                        <form method="post" style="display:inline;">
-                            <input type="hidden" name="rolescod_" value="{{rolescod}}">
-                            <input type="hidden" name="usercod" value="{{usercod}}">
+                                <button id="btnToggleRol" type="submit" name="btnToggleRol">Cambiar Estado</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{endfor roles_usuario}}
+                </tbody>
+            </table>
 
-                            <button type="submit" name="btnToggleRol">Cambiar Estado</button>
-                        </form>
-                    </td>
-                </tr>
-                {{endfor roles_usuario}}
-            </tbody>
-        </table>
-
-
+        </section>
 
 
 

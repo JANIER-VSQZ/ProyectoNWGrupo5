@@ -2,9 +2,9 @@
     <h2>Listado de Productos</h2>
 </section>
 
-<section class="grid">
-    <div class="row">
-        <div class="col-12 col-m-8 flex align-center">
+<section class="grid cols-3 between-center px-4 py-4 depth-1 mb-4">
+    <div class="row between-center">
+        <div>
             <a class="add mg-2" href="index.php?page=Productos-ProductosForm&mode=INS">Agregar Nuevo Producto</a>
             <a class="add" href="index.php?page=Productos-Catalogo">Volver a Catalogo</a>
         </div>

@@ -57,7 +57,44 @@ textarea {
     transition: 0.2s;
 }
 
-input:focus,
+input[type="email"]
+ {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #a3d9a5;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #ffffff; /* keep inputs clean */
+    transition: 0.2s;
+}
+
+
+
+input[type="number"] 
+{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #a3d9a5;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #ffffff; /* keep inputs clean */
+    transition: 0.2s;
+}
+
+input[type="datetime"] 
+{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #a3d9a5;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #ffffff; /* keep inputs clean */
+    transition: 0.2s;
+}
+
+
+
+input[type="text"]:focus,
 select:focus,
 textarea:focus {
     border-color: #38a169; /* focus green */
@@ -65,7 +102,40 @@ textarea:focus {
     outline: none;
 }
 
-/* Buttons */
+
+input[type="password"]
+ {
+    border-color: #38a169; /* focus green */
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.25);
+    outline: none;
+}
+
+
+
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #38a169; /* focus green */
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.25);
+    outline: none;
+}
+
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #38a169; /* focus green */
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.25);
+    outline: none;
+}
+
+input[type="datetime"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #38a169; /* focus green */
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.25);
+    outline: none;
+}
+
 button {
     padding: 10px 20px;
     border: none;
@@ -76,9 +146,23 @@ button {
     transition: 0.2s;
 }
 
+#btnToggleRol {
+    background: #569fe3; /* blue button */
+    color: white;
+}
+
+#btnAddRol {
+    margin-top: 20px;
+    background: #aa59bd; 
+    color: white;
+}
+
+
+
 #btnCancelar {
     background: #9ae6b4; /* soft green */
     color: white;
+    margin-right: 20px;
 }
 
 #btnCancelar:hover {

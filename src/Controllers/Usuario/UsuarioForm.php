@@ -209,6 +209,8 @@ class UsuarioForm extends PublicController
 
     public function run(): void
     {
+        Site::addLink("public/css/lists.css");
+        Site::addLink("public/css/forms.css");
         try {
             Site::addLink("public/css/forms.css");
             $this->page_init();
