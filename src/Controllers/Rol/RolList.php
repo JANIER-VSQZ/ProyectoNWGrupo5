@@ -2,12 +2,12 @@
 
 namespace Controllers\Rol;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Rol\Rol as DAORol;
 use Views\Renderer;
 use Utilities\Site;
 
-class RolList extends PublicController
+class RolList extends PrivateController
 {
     public function run(): void
     {

@@ -2,7 +2,7 @@
 
 namespace Controllers\Checkout;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Facturas\Facturas as facturasDao;
 use Dao\Facturas\DetallesFactura;
 use Dao\Dao;
@@ -10,7 +10,7 @@ use Dao\Dao;
 //
 use Dao\Productos\Productos as DAOProductos;
 
-class Accept extends PublicController
+class Accept extends PrivateController
 {
     private string $orderId = "";
     private string $captureId = "";

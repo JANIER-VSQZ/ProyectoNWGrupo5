@@ -2,7 +2,7 @@
 
 namespace Controllers\Usuario;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Usuario\Usuario as DAOUsuario;
 use Dao\Rol\Rol as DAORol;
 use Dao\RolesUsuario\RolesUsuario as DAORolUsuario;
@@ -15,7 +15,7 @@ use Views\Renderer;
 const USUARIOL = "index.php?page=Usuario-UsuarioList";
 const USUARIO_VIEW = "usuario/form";
 
-class UsuarioForm extends PublicController
+class UsuarioForm extends PrivateController
 {
     private $modes = [
         "INS" => "Nuevo Usaurio :)",
