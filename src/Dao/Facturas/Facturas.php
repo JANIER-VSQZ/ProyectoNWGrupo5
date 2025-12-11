@@ -11,7 +11,7 @@ class Facturas extends Table{
 
     public static function obtenerFacturasPorCodigo(int $factura_Id, int $usuario_id):array{
         $sqlstr = "select f.factura_id,
-        f.OrderIdPaypal,
+        f.orderIdPaypal,
         f.captureIdPaypal,
         f.fechaFactura,
         f.usuario_Id,
