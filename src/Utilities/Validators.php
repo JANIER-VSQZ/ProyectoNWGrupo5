@@ -17,7 +17,9 @@ class Validators {
     static public function IsValidPassword($valor){
         return preg_match("/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/", $valor) && true;
     }
-
+    static public function IsValidNombre($valor) {
+        return preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,50}$/", $valor) === 1;
+    }
     private function __construct()
     {
         
