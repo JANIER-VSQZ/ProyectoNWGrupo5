@@ -42,12 +42,10 @@ class Productos extends Table
         if (count($conditions) > 0) {
             $sqlBase .= " WHERE " . implode(" AND ", $conditions);
         }
-
-        // COUNT
         $countSql = "SELECT COUNT(*) as count " . $sqlBase;
         $total = self::obtenerUnRegistro($countSql, $params)["count"];
 
-        // PAGINACIÓN
+        // para las páginas en lista
         $pages = ceil($total / $itemsPerPage);
         if ($page > $pages - 1) {
             $page = $pages - 1;
@@ -55,7 +53,6 @@ class Productos extends Table
 
         $offset = $page * $itemsPerPage;
 
-        // DATA
         $dataSql = "
             SELECT
                 p.productId,
@@ -144,5 +141,27 @@ class Productos extends Table
         ];
 
         return self::executeNonQuery($delSql, $delData);
+    }
+
+
+    //METODOS PARA CARRETILLA
+    //Función para restar stock de un producto, solo si hay suficiente stock
+    public static function restarStock(int $productId, int $qty): bool
+    {
+        $sql = "UPDATE products SET productStock = productStock - :qty WHERE productId = :productId AND productStock >= :qty;";
+        return self::executeNonQuery($sql, ["qty" => $qty, "productId" => $productId]);
+    }
+
+    //Función para Verificar si hay stock disponible
+    public static function validarStockDisponible(int $productId, int $qty): bool
+    {
+        $sql = "SELECT productStock FROM products WHERE productId = :productId;";
+        $row = self::obtenerUnRegistro($sql, ["productId" => $productId]);
+
+        if (!$row) {
+            return false;
+        }
+
+        return intval($row["productStock"]) >= $qty;
     }
 }

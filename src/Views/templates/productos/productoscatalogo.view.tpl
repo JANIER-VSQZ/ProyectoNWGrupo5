@@ -20,9 +20,21 @@
             <span class="price">L. {{productPrice}}</span>
             <span class="stock">Stock: {{productStock}}</span>
             <div class="product-actions">
-                <button class="add-to-cart">Agregar al Carrito</button>
+                <button class="add-to-cart" data-productid="{{productId}}">Agregar al Carrito</button>
             </div>
         </div>
     </div>
     {{endfor productos}}
 </div>
+
+<!-- icono del carrito -->
+<div id="floating-cart">
+    <a href="index.php?page=Checkout_Resumen" id="floating-cart-link" title="Ver Carrito">
+        <i class="fa fa-shopping-cart"></i>
+        <span id="floating-cart-count">0</span>
+    </a>
+</div>
+
+<!-- .js para funcionalidad del icono carrito-->
+<script src="public/js/cart.js"></script>
+<link rel="stylesheet" href="public/css/productos/catalogo.css">

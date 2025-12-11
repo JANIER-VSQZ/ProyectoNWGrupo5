@@ -4,22 +4,72 @@ namespace Controllers\Checkout;
 
 use Controllers\PublicController;
 
+
+///
+use Utilities\Security;
+use Dao\Carretilla\Carretilla as DaoCarretilla;
+use Dao\Carretilla\CarretillaAnon as DaoCarretillaAnon;
+use Dao\Productos\Productos as DaoProductos;
+
 class Checkout extends PublicController
 {
+
     public function run(): void
     {
         $viewData = array();
+
         if ($this->isPostBack()) {
+
+            // Obtener items del carrito
+            $items = [];
+            if (Security::isLogged()) {
+                $items = DaoCarretilla::getAllByUser(Security::getUserId());
+            } else {
+                $anoncod = DaoCarretillaAnon::ensureAnonCode();
+                $items = DaoCarretillaAnon::getAllByAnon($anoncod);
+            }
+
+            if (!is_array($items) || count($items) == 0) {
+                $viewData["error"] = "Carrito vacío";
+                \Views\Renderer::render("paypal/checkout", $viewData);
+                return;
+            }
+
+            $total = 0.0;
+
             $PayPalOrder = new \Utilities\Paypal\PayPalOrder(
-                "test" . (time() - 10000000),
+                "order-" . time(),
                 "http://localhost:8080/ProyectoNWGrupo5/index.php?page=Checkout_Error",
                 "http://localhost:8080/ProyectoNWGrupo5/index.php?page=Checkout_Accept"
             );
 
-            $PayPalOrder->addItem("Manzana", "TestItem1", "PRD1", 200, 15, 1, "DIGITAL_GOODS"); //precio, impuesto, cantidad
-            $PayPalOrder->addItem("Piña", "TestItem2", "PRD2", 150, 7.5, 2, "DIGITAL_GOODS");
-            $PayPalOrder->addItem("mouse", "TestItem3", "PRD3", 190, 7, 3, "DIGITAL_GOODS");
-            $PayPalOrder->addItem("teclado", "TestItem4", "PRD4", 390, 15, 1, "DIGITAL_GOODS");
+            foreach ($items as $it) {
+
+                $name = $it["productName"];
+                $sku = $it["productId"];
+                $unitPrice = floatval($it["crrprc"]);
+
+                // Cantidad del carrito
+                $quantity = intval($it["crrctd"]);
+                if ($quantity <= 0) {
+                    $quantity = 1;
+                }
+
+                // impuesto sobre venta
+                $tax = round($unitPrice * 0.15, 2);
+
+                $total += ($unitPrice * $quantity);
+
+                $PayPalOrder->addItem(
+                    $name,
+                    $name,
+                    $sku,
+                    $unitPrice,
+                    $tax,
+                    $quantity,
+                    "PHYSICAL_GOODS"
+                );
+            }
 
             $PayPalRestApi = new \Utilities\PayPal\PayPalRestApi(
                 \Utilities\Context::getContextByKey("PAYPAL_CLIENT_ID"),

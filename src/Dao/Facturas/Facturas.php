@@ -8,7 +8,7 @@ class Facturas extends Table
 {
     public static function obtenerFacturas(): array
     {
-        $sqlstr = "SELECT * FROM Facturas";
+        $sqlstr = "SELECT * FROM facturas";
         return self::obtenerRegistros($sqlstr, []);
     }
 
@@ -37,7 +37,7 @@ class Facturas extends Table
 
     public static function obtenerFacturasPorUsuario(int $usercod): array
     {
-        $sqlstr = "SELECT * from Facturas where usuario_id = :usercod;";
+        $sqlstr = "SELECT * from facturas where usuario_id = :usercod;";
         return self::obtenerRegistros($sqlstr, ['usercod' => $usercod]);
     }
 
