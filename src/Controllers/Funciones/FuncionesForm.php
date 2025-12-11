@@ -135,7 +135,9 @@ class FuncionesForm extends PublicController
 
     public function run(): void
     {
+        Site::addLink("public/css/lists.css");
         Site::addLink("public/css/forms.css");
+
         try {
             $this->page_init();
             if ($this->isPostBack()) {

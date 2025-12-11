@@ -1,6 +1,16 @@
 {
   "public": [
     {
+      "id": "Lista_Facturas",
+      "nav_url": "index.php?page=Facturas-TabFacturas",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Historial Facturas"
+    },
+    {
+      "id": "Lista_Productos",
+      "nav_url": "index.php?page=Productos-ProductosList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Inventario"
+    },
+    {
       "id": "Lista_Usuarios",
       "nav_url": "index.php?page=Usuario-UsuarioList",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Usuarios"
@@ -34,6 +44,31 @@
       "id":"Menu_PaymentCheckout",
       "nav_url": "index.php?page=Checkout_Checkout",
       "nav_label": "Carretilla de Compra"
+    },
+    {
+      "id": "Lista_Facturas",
+      "nav_url": "index.php?page=Facturas-TabFacturas",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Historial Facturas"
+    },
+    {
+      "id": "Lista_Productos",
+      "nav_url": "index.php?page=Productos-ProductosList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Inventario"
+    },
+    {
+      "id": "Lista_Usuarios",
+      "nav_url": "index.php?page=Usuario-UsuarioList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Usuarios"
+    },
+    {
+      "id": "Lista_Funciones",
+      "nav_url": "index.php?page=Funciones-FuncionesList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Funciones"
+    },
+    {
+      "id": "Lista_Roles",
+      "nav_url": "index.php?page=Rol-RolList",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Roles"
     }
   ]
 }

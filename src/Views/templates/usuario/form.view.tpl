@@ -30,17 +30,29 @@
             <input type="text" name="nombre" id="nombre" value="{{username}}" {{readonly}} {{ifnot readonly}} required
                 minlength="3" maxlength="60" {{endifnot readonly}} />
         </div>
+
+            {{if isUpdate}}
+        <div>
+            <input type="hidden" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
+        </div>
+
+        <div>
+            <input type="hidden" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
+        </div>
+        {{endif isUpdate}}
+
         {{ifnot isUpdate}}
         <div>
             <label for="contrasena">Contraseña: </label>
             <input type="text" name="contrasena" id="contrasena" value="{{userpswd}}" readonly />
         </div>
-        {{endifnot isUpdate}}
+
         <div>
             <label for="fechaCreacion">Fecha Creación:</label>
             <input type="text" name="fechaCreacion" id="fechaCreacion" value="{{userfching}}" readonly />
         </div>
-
+        {{endifnot isUpdate}}
+        
         <div>
             <label for="estadoContrasena">Estado Contraseña: </label>
             {{ifnot readonly}}
@@ -78,6 +90,19 @@
             <input type="text" name="estadoUsuario" id="estadoUsuario" value="{{userest}}" {{readonly}} />
             {{endif readonly}}
         </div>
+        {{if isUpdate}}
+        <div>
+
+            <input type="hidden" name="codigoActivacion" id="codigoActivacion" value="{{useractcod}}" readonly />
+        </div>
+
+        <div>
+
+            <input type="hidden" name="codigoCambioContrasena" id="codigoCambioContrasena" value="{{userpswdchg}}"
+                readonly />
+        </div>
+        {{endif isUpdate}}
+
         {{ifnot isUpdate}}
         <div>
             <label for="codigoActivacion">Codigo Activación: </label>
@@ -116,7 +141,7 @@
                 <option value="{{rolescod}}">{{rolescod}}</option>
                 {{endfor rol}}
             </select>
-            <button type="submit" name="btnAddRol" value="1">Añadir Rol</button>
+            <button id="btnAddRol" type="submit" name="btnAddRol" value="1">Añadir Rol</button>
             {{endifnot readonly}}
 
             {{if readonly}}
@@ -166,39 +191,39 @@
             </table>
         </section> -->
 
+        <section class="WWList">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>UserCod</th>
+                        <th>Código Rol</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>UserCod</th>
-                    <th>Código Rol</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{foreach roles_usuario}}
+                    <tr>
+                        <td>{{usercod}}</td>
+                        <td>{{rolescod}}</td>
+                        <td>{{rolesdsc}}</td>
+                        <td>{{roleuserest}}</td>
+                        <td>
+                            <form method="post" style="display:inline;">
+                                <input type="hidden" name="rolescod_" value="{{rolescod}}">
+                                <input type="hidden" name="usercod" value="{{usercod}}">
 
-                </tr>
-            </thead>
-            <tbody>
-                {{foreach roles_usuario}}
-                <tr>
-                    <td>{{usercod}}</td>
-                    <td>{{rolescod}}</td>
-                    <td>{{rolesdsc}}</td>
-                    <td>{{roleuserest}}</td>
-                    <td>
-                        <form method="post" style="display:inline;">
-                            <input type="hidden" name="rolescod_" value="{{rolescod}}">
-                            <input type="hidden" name="usercod" value="{{usercod}}">
+                                <button id="btnToggleRol" type="submit" name="btnToggleRol">Cambiar Estado</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{endfor roles_usuario}}
+                </tbody>
+            </table>
 
-                            <button type="submit" name="btnToggleRol">Cambiar Estado</button>
-                        </form>
-                    </td>
-                </tr>
-                {{endfor roles_usuario}}
-            </tbody>
-        </table>
-
-
+        </section>
 
 
 

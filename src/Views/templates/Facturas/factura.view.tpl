@@ -68,6 +68,7 @@
         </div>
         
         <div class="tarjetasMovil">
+            <p class="label"><strong>Detalles de compra: </strong></p>
             {{foreach detalles}}
                 <div class="tarjeta">
                     <p>Nombre Producto: {{nombreProducto}}</p>
