@@ -1,6 +1,11 @@
 {
   "public": [
     {
+      "id": "Lista_Facturas",
+      "nav_url": "index.php?page=Facturas-TabFacturas",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Historial Facturas"
+    },
+    {
       "id": "Lista_Productos",
       "nav_url": "index.php?page=Productos-ProductosList",
       "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Inventario"
@@ -39,6 +44,11 @@
       "id":"Menu_PaymentCheckout",
       "nav_url": "index.php?page=Checkout_Checkout",
       "nav_label": "Carretilla de Compra"
+    },
+    {
+      "id": "Lista_Facturas",
+      "nav_url": "index.php?page=Facturas-TabFacturas",
+      "nav_label":"<i class=\"fas fa-sign-in-alt\"></i>&nbsp;Historial Facturas"
     },
     {
       "id": "Lista_Productos",
