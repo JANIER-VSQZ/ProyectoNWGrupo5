@@ -209,7 +209,6 @@ class UsuarioForm extends PublicController
 
     public function run(): void
     {
-
         try {
             $this->page_init();
             if ($this->isPostBack()) {
