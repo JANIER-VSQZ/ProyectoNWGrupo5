@@ -1,0 +1,5 @@
+usuario admin: useradmin@gmail.com
+contraseña: Admin.1234
+
+usuario cliente: pedrofunez23@gmail.com
+contraseña: Cliente.1234
