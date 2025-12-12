@@ -1,12 +1,3 @@
-<div class="nav">
-    <nav>
-        <ul class="menu">
-            <li><a href="index.php?page=Productos-ProductosList"><i class="fa-solid fa-boxes-stacked"></i>Inventario</a></li>
-            <li><a href="index.php?page=Productos-ProductosList"><i class="fa-solid fa-store"></i>LOREM</a></li>
-        </ul>
-    </nav>
-</div>
-
 <h1 class="center">Todos Nuestros Productos</h1>
 
 <div class="product-list">
