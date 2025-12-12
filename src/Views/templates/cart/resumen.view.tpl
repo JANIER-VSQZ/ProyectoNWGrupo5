@@ -14,7 +14,7 @@
         {{foreach items}}
         <tr data-productid="{{productId}}">
             <td>
-                <img src="{{productImgUrl}}" alt="{{productName}}" style="margin-right: 10px;width:60px;height:60px;">
+                <img src="{{productImgUrl}}" alt="{{productName}}" style="margin-right: 10px;width:60px;height:60px;border-radius: 5px;">
                 {{productName}}
             </td>
             <td>{{crrprc}}</td>

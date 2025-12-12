@@ -2,7 +2,7 @@
 
 namespace Controllers\Rol;
 
-use Controllers\PrivateController;
+use Controllers\PublicController;
 use Dao\Rol\Rol as DAORol;
 use Dao\Funciones\Funciones as DAOFunciones;
 use Dao\FuncionesRoles\FuncionesRoles as DAOFuncionesRoles;
@@ -16,7 +16,7 @@ const ROLESL = "index.php?page=Rol-RolList";
 const ROLES_VIEW = "rol/form";
 
 
-class RolForm extends PrivateController
+class RolForm extends PublicController
 {
     private $modes = [
         "INS" => "Nuevo Rol",
