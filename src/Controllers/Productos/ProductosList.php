@@ -19,6 +19,7 @@ class ProductosList extends PrivateController
 
     public function run(): void
     {
+        Site::addLink("public/css/lists.css");
         Site::addLink("public/css/productos/productoslist.css");
         $this->getParams();
 
